@@ -13,7 +13,23 @@ const movieSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-})
+    /*cast: {
+        type: mongoose.SchemaTypes.ObjectId,
+		ref: "Celebrity",
+		required: true
+    },*/
+},
+{
+    toJSON: {
+      virtuals: true,
+    },
+});
+
+movieSchema.virtual('cast', {
+  ref: 'Cast',
+  foreignField: 'movie',
+  localField: '_id'
+});
 
 const Movie = mongoose.model("Movie", movieSchema);
 

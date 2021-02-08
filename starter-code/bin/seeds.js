@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const Celebrity = require("../models/celebrity")
 
 const Movie = require("../models/movie")
+
+const Cast = require("../models/cast")
 /*
 const initialLoad = [
     {
@@ -57,7 +59,6 @@ Celebrity.deleteMany()
     }, 1000);
 })
 .catch(() => console.log('Error creating DB initial load'))
-*/
 Movie.deleteMany()
 .then(() => {
     Movie.create(initialLoad)
@@ -72,4 +73,22 @@ Movie.deleteMany()
         mongoose.connection.close(); 
     }, 1000);
 })
+.catch(() => console.log('Error creating DB initial load'))
+*/
+
+Cast.deleteMany()
+.then(() => {
+    Movie.find()
+    .then((movies) => {
+        Celebrity.find()
+        .then((celebrities) => {
+            Cast.insertMany(new Array(7).fill().map((_, i) => ({
+            movie: movies[i].id,
+            celebrity: celebrities[i].id
+            })))
+        })
+    }
+)
+})
+
 .catch(() => console.log('Error creating DB initial load'))

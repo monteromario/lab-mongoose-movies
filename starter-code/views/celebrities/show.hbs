@@ -3,7 +3,7 @@
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
-            <img src="https://lh3.googleusercontent.com/proxy/oYuX4_ye1rr6MGWcAscDQqMS2tzxQUL7vImp7ggd0yRqxdEHfHYlL75cj92hG5O0subVDZS0nM2G6OGGpCnwqkyplkzXTZkEXuVZkuPeOIjAfL5-0F6fawnF" class="img-thumbnail" alt="{{celebrity.name}}">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" class="img-thumbnail" alt="{{celebrity.name}}">
             </div>
             <div class="col-md-8">
             <div class="card-body">
@@ -11,13 +11,16 @@
                 <p class="card-text">Occupation: <strong>{{celebrity.occupation}}</strong></p>
                 <p class="card-text">Gender: <strong>unknown</strong> / Age: <strong>unknown</strong></p>
                 <p class="card-text">Catch phrase: <strong><i>"{{celebrity.catchPhrase}}"</i></strong></p>
+                {{#if celebrity.cast}}<p class="card-text">Movies: <strong>{{#each celebrity.cast}}<a href="../movies/{{movie._id}}">{{movie.title}}{{#if @last}}.{{else}},{{/if}}</a> {{/each}}</strong></p>{{/if}}
             </div>
             </div>
         </div>
     </div>
     <a href="/celebrities" class="btn btn-secondary">Go back to celebrities list</a>
+    {{#if currentUser}}
     <a href="/celebrities/{{celebrity._id}}/edit" class="btn btn-primary">Edit profile</a>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete profile</button>
+    {{/if}}
     
 </div>
 

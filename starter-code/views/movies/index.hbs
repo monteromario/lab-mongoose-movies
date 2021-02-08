@@ -12,6 +12,7 @@
                 <blockquote class="blockquote mb-0">
                 <p>"{{plot}}"</p>
                 <footer class="blockquote-footer"><cite title="Source Title">{{genre}}</cite></footer>
+                <a href="/celebrities/{{cast._id}}"><p>{{cast.name}}</p></a>
                 </blockquote>
                 <a href="/movies/{{_id}}"><button type="button" class="btn btn-secondary mt-3">View details</button></a>
             </div>
@@ -19,11 +20,13 @@
     </div>
     {{/each}}
 </div>
+    {{#if currentUser}}
     <div class="fixed-bottom container">
         <p class="text-end">
             <a href="/movies/new"><button type="button" class="btn btn-success">[+] Add Movie</button></a>
         </p>
-    </div> 
+    </div>
+    {{/if}}
 </div>
 
 

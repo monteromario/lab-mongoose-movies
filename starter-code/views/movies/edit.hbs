@@ -13,6 +13,17 @@
         <label for="plot" class="form-label">Plot</label>
         <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
     </div>
+    <!--
+    <div class="mb-3">
+        <label for="cast" class="form-label">Cast</label>
+        <select class="form-select" id="cast" name="cast">
+        <option value ="{{movie.cast.id}}" selected>{{movie.cast.name}}</option>
+        {{#each celebrities}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        </select>
+    </div>
+    -->
     <input type="text" class="form-control" id="_id" name="_id" value="{{movie._id}}" hidden>
     <button type="submit" class="btn btn-dark">Confirm edition</button>
     </form>

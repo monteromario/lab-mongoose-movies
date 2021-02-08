@@ -1,5 +1,32 @@
-<div class="container py-3">
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+<div class="container d-flex flex-wrap py-3">
+    <div class="col-mx-auto">
+        <h1>{{title}}</h1>
+        <p>Welcome to {{title}}</p>
     <img src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png" alt="Ironhack">
+    </div>
+    <div class="col p-5">
+        <div>
+            <form class="d-flex" action="/celebrities/">
+            <input class="form-control me-2" type="search" placeholder="Search celebrities" aria-label="Search" name="name" value="{{#if celebrity_search}}{{celebrity_search}}{{/if}}">
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+            <form class="d-flex mt-1" action="/movies/">
+            <input class="form-control me-2" type="search" placeholder="Search movies" aria-label="Search" name="title" value="{{#if movie_search}}{{movie_search}}{{/if}}">
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col pt-5">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                {{#if currentUser}}
+                <button class="btn btn-info" type="button" onclick="location.href='/profile'">Profile</button>
+                <form method="POST" action="/logout" class="mx-auto w-100">
+                <button class="btn btn-dark w-100" type="submit" onclick="location.href='/logout'">Log-out</button>
+                </form>
+                {{else}}
+                <button class="btn btn-info" type="button" onclick="location.href='/register'">Register</button>
+                <button class="btn btn-dark" type="button" onclick="location.href='/login'">Log-in</button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
 </div>

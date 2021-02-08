@@ -1,0 +1,40 @@
+<div class="container py-3">
+    <h2 class="py-3">Cast list</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Movie</th>
+            <th scope="col">Celebrity</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cast}}
+            <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{movie.title}}</td>
+            <td>{{celebrity.name}}</td>
+            <td>
+                {{#if ../currentUser}}
+                <form method="POST" action="/cast/{{id}}/delete">
+                    <input type="text" class="form-control" id="id" name="id" value="{{id}}" hidden>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+                {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </table> 
+</div>
+    {{#if currentUser}}
+    <div class="fixed-bottom container">
+        <p class="text-end">
+            <a href="/cast/new"><button type="button" class="btn btn-success">[+] Add Cast</button></a>
+        </p>
+    </div>
+    {{/if}}
+</div>
+
+

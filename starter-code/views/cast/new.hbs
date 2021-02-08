@@ -1,0 +1,25 @@
+<div class="container py-3">
+    <h2 class="py-3">Add cast</h2>
+    <form action="/cast" method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Movie</label>
+        <select class="form-select" id="movie" name="movie" required>
+            <option value="" disabled selected>Select movie</option>
+            {{#each movies}}
+            <option value="{{_id}}">{{title}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="celebrity" class="form-label">Celebrity</label>
+        <select class="form-select" id="celebrity" name="celebrity" required>
+            <option value="" disabled selected>Select celebrity</option>
+            {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-dark">Add</button>
+    </form>
+    <a href="/"><button class="btn btn-outline-dark mt-3">Go back home</button></a>
+</div>

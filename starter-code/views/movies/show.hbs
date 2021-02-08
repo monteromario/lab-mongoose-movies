@@ -3,7 +3,7 @@
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
-            <img src="https://lh3.googleusercontent.com/proxy/oYuX4_ye1rr6MGWcAscDQqMS2tzxQUL7vImp7ggd0yRqxdEHfHYlL75cj92hG5O0subVDZS0nM2G6OGGpCnwqkyplkzXTZkEXuVZkuPeOIjAfL5-0F6fawnF" class="img-thumbnail" alt="{{celebrity.name}}">
+            <img src="https://icons-for-free.com/iconfiles/png/512/film+movie+icon-1320168706079649676.png" class="img-thumbnail" alt="{{celebrity.name}}">
             </div>
             <div class="col-md-8">
             <div class="card-body">
@@ -11,14 +11,16 @@
                 <p class="card-text">Genre: <strong>{{movie.genre}}</strong></p>
                 <p class="card-text">Director: <strong>unknown</strong> / Release date: <strong>unknown</strong></p>
                 <p class="card-text">Plot: <strong><i>"{{movie.plot}}"</i></strong></p>
+                <p class="card-text">Cast: {{#each movie.cast}}<a href="../celebrities/{{celebrity._id}}"><strong><i>{{celebrity.name}}{{#if @last}}.{{else}},{{/if}} </i></strong></a>{{/each}}</p>
             </div>
             </div>
         </div>
     </div>
     <a href="/movies" class="btn btn-secondary">Go back to movies list</a>
+    {{#if currentUser}}
     <a href="/movies/{{movie._id}}/edit" class="btn btn-primary">Edit profile</a>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete profile</button>
-    
+    {{/if}}
 </div>
 
 <!-- Modal -->
